@@ -26,6 +26,7 @@
   --font-family: "Inter", sans-serif;
   --font-size-h1: 48px;
   --font-size-h2: 48px;
+  --font-size-title: 48px;
   --font-size-h3: 32px;
   --font-size-large: 24px;
   --font-size-base: 20px;
@@ -42,7 +43,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-size: 16px;
   line-height: 1.2;
   color: var(--color-text-primary);
@@ -92,15 +93,18 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 64px;
-  border-radius: 10px;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
+  min-height: var(--btn-height);
+  border-radius: var(--btn-radius);
+  font-size: var(--font-size-base);
   font-weight: 400;
   cursor: pointer;
   border: none;
 }
 /* Глобальные стили */
+
+.konda-page {
+  width: 100%;
+}
 
 .hero {
   min-height: 100vh;
@@ -109,9 +113,7 @@ p {
 }
 
 .hero__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
 .hero__offer {
@@ -120,13 +122,11 @@ p {
 }
 
 .hero__title {
-  font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   line-height: 1.4;
   text-transform: uppercase;
-  color: #fff;
-  width: 100%;
+  color: var(--color-bg-light);
   max-width: 910px;
 }
 
@@ -147,8 +147,8 @@ p {
   margin-top: 60px;
   margin-left: auto;
   padding: 0 50px;
-  background: #f59a00;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-bg-light);
   display: flex;
   transition: filter 0.3s ease;
 }
@@ -163,11 +163,15 @@ p {
 }
 
 .hero__text {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  max-width: 393px;
+  font-size: var(--font-size-large);
   line-height: 1.2;
   font-weight: 400;
-  color: #fff;
+  color: var(--color-bg-light);
+}
+
+.hero__text span {
+  display: block;
 }
 
 /* CSS 2 блок */
@@ -177,10 +181,7 @@ p {
 }
 
 .glued-timber__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
-
+  padding: var(--container-padding);
   display: flex;
   flex-direction: column;
 }
@@ -188,9 +189,8 @@ p {
 .glued-timber__title {
   margin-bottom: 60px;
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   line-height: 1.2;
-  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -202,20 +202,19 @@ p {
 
 .glued-timber__tab {
   flex: 1;
-  height: 64px;
-  border-radius: 10px;
+  height: var(--btn-height);
+  border-radius: var(--btn-radius);
   border: 1px solid var(--color-text-primary);
   background: transparent;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: var(--font-size-base);
   font-weight: 400;
   line-height: 1.2;
 }
 
 .glued-timber__tab--active {
-  background: #42975a;
-  border-color: #42975a;
-  color: #fff;
+  background: var(--color-accent-alt);
+  border-color: var(--color-accent-alt);
+  color: var(--color-bg-light);
 }
 
 .glued-timber__body {
@@ -231,9 +230,8 @@ p {
 
 .glued-timber__subtitle {
   margin-bottom: 30px;
-  font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 32px;
+  font-size: clamp(24px, 5vw, 32px);
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -243,11 +241,9 @@ p {
   flex-direction: column;
   gap: 10px;
   margin-bottom: 40px;
-  font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 24px;
+  font-size: var(--font-size-large);
   line-height: 1.2;
-  letter-spacing: 0;
 }
 
 .glued-timber__list li {
@@ -269,16 +265,14 @@ p {
 
 .glued-timber__price {
   margin-bottom: 40px;
-  font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 24px;
+  font-size: var(--font-size-large);
   line-height: 1.2;
-  letter-spacing: 0;
 }
 
 .glued-timber__button {
-  background: #f59a00;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-bg-light);
   padding: 0 50px;
 }
 
@@ -291,7 +285,6 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 /* CSS 3 блок */
@@ -300,16 +293,13 @@ p {
 }
 
 .timber-profiles__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
 .timber-profiles__title {
   margin-bottom: 60px;
-  font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 32px;
+  font-size: var(--font-size-h3);
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -320,7 +310,8 @@ p {
 }
 
 .timber-profiles__item {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .timber-profiles__image {
@@ -328,14 +319,11 @@ p {
 }
 
 .timber-profiles__image img {
-  display: block;
   width: 100%;
-  height: auto;
 }
 
 .timber-profiles__name {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: var(--font-size-large);
   font-weight: 500;
   line-height: 1.2;
 }
@@ -347,12 +335,8 @@ p {
 }
 
 .timber-sizes__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
-
+  padding: var(--container-padding);
   display: flex;
-  align-items: flex-start; /* ВАЖНО */
   gap: 101px;
 }
 
@@ -363,7 +347,7 @@ p {
 
 .timber-sizes__title {
   margin-bottom: 60px;
-  font-size: 32px;
+  font-size: var(--font-size-h3);
   font-weight: 500;
   line-height: 1.2;
   text-transform: uppercase;
@@ -398,15 +382,15 @@ p {
   height: 50px;
   padding: 0;
   border-radius: 8px;
-  border: 1px solid #f59a00;
+  border: 1px solid var(--color-accent);
   background: transparent;
-  font-size: 20px;
+  font-size: var(--font-size-base);
   line-height: 1.2;
 }
 
 .timber-sizes__btn--active {
-  background: #f59a00;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-bg-light);
 }
 
 .timber-sizes__icon {
@@ -416,15 +400,12 @@ p {
 }
 
 .timber-sizes__image {
-  width: 500px;
-  max-width: 100%;
-  flex-shrink: 0;
+  width: 100%;
+  max-width: 500px;
 }
 
 .timber-sizes__image img {
-  display: block;
   width: 100%;
-  height: auto;
 }
 
 /* CSS 5 блок */
@@ -433,25 +414,21 @@ p {
 }
 
 .timber-process__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
 .timber-process__title {
   max-width: 523px;
   margin-bottom: 40px;
-  font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   line-height: 1.2;
   text-transform: uppercase;
 }
 
 .timber-process__text {
   max-width: 523px;
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: var(--font-size-large);
   line-height: 1.2;
 }
 
@@ -465,21 +442,19 @@ p {
   padding: 40px;
   border-radius: 20px;
   background: #2f3b46;
-  color: #fff;
+  color: var(--color-bg-light);
 }
 
 .timber-process__item-title {
   margin-bottom: 20px;
-  font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 20px;
+  font-size: var(--font-size-base);
   line-height: 1.2;
   text-transform: uppercase;
 }
 
 .timber-process__item-text {
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: var(--font-size-base);
   line-height: 1.2;
 }
 
@@ -507,14 +482,12 @@ p {
 }
 
 .wall-kits__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
 .wall-kits__title {
   margin-bottom: 40px;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   font-weight: 700;
   text-transform: uppercase;
   line-height: 1.2;
@@ -522,7 +495,7 @@ p {
 
 .wall-kits__text {
   margin-bottom: 60px;
-  font-size: 24px;
+  font-size: var(--font-size-large);
   line-height: 1.2;
   max-width: 741px;
 }
@@ -539,19 +512,18 @@ p {
   width: 100%;
   height: 1px;
   margin-top: auto;
-  background: #f59a00;
+  background: var(--color-accent);
 }
 
 .wall-kits__item {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
 .wall-kits__img {
-  display: block;
   width: 100%;
-  height: auto;
   margin-bottom: 30px;
 }
 
@@ -563,216 +535,222 @@ p {
 }
 
 .wall-kits__question {
-  font-size: 24px;
+  font-size: var(--font-size-large);
   line-height: 1.2;
 }
 
 .wall-kits__button {
   padding: 0 86px;
-  background: #f59a00;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-bg-light);
 }
 
 .wall-kits__row {
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2px;
   margin-bottom: 40px;
 }
 
 .wall-kits__row p {
-  font-size: 20px;
-  line-height: 1.2;
+  min-width: 0;
+  font-size: var(--font-size-base);
 }
 
 .wall-kits__arrow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 24px;
-  height: 24px;
+  position: static;
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
 }
 
 /* CSS 7 блок */
 .ready-kits {
-    padding: 120px 0;
-    background: var(--color-bg-dark);
-    color: #fff;
-  }
-  
-  .ready-kits__container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 110px;
-  }
-  
-  .ready-kits__title {
-    margin-bottom: 90px;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-transform: uppercase;
-  }
-  
-  /* Новая обёртка для слайдера */
-  .ready-kits__slider {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-  }
-  
-  .ready-kits__arrow {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 352px; /* поднимаем стрелки ниже */
-    padding: 0;
-  }
-  
-  .ready-kits__arrow:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .ready-kits__arrow img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-  }
-  
-  .ready-kits__inner {
-    flex: 1;
-  }
-  
-  .ready-kits__body {
-    display: flex;
-    align-items: flex-start;
-    gap: 103px;
-    margin-bottom: 60px;
-  }
-  
-  .ready-kits__gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .ready-kits__main-img {
-    width: min(100%, 500px);
-    height: auto;
-  }
-  
-  .ready-kits__thumbs {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .ready-kits__thumbs img {
-    width: calc(33.333% - 14px);
-    min-width: 120px;
-    max-width: 240px;
-    height: auto;
-    flex: 1;
-  }
-  
-  .ready-kits__content {
-    flex: 1;
-  }
-  
-  .ready-kits__subtitle {
-    margin-bottom: 20px;
-    font-size: 32px;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-  
-  .ready-kits__description {
-    margin-bottom: 40px;
-    font-size: 24px;
-    line-height: 1.2;
-  }
-  
-  .ready-kits__group {
-    margin-bottom: 40px;
-  }
-  
-  .ready-kits__group h4 {
-    margin-bottom: 20px;
-    font-weight: 500;
-    font-size: 24px;
-  }
-  
-  .ready-kits__group p {
-    margin-bottom: 15px;
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .ready-kits__group p:last-child {
-    margin-bottom: 0;
-  }
-  
-  .ready-kits__price {
-    margin-bottom: 40px;
-  }
-  
-  .ready-kits__price h4 {
-    margin-bottom: 20px;
-    font-weight: 600;
-    font-size: 24px;
-  }
-  
-  .ready-kits__price p {
-    font-size: 24px;
-    font-weight: 500;
-  }
-  
-  .ready-kits__button {
-    height: 64px;
-    padding: 20px 127px;
-    border-radius: 10px;
-    background: #f59a00;
-    color: #fff;
-    width: 100%;
-    max-width: 417px;
-    font-size: 20px;
-  }
-  
-  .ready-kits__dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 60px;
-  }
-  
-  .ready-kits__dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #fff;
-    opacity: 0.4;
-  }
-  
-  .ready-kits__dot--active {
-    opacity: 1;
-    background: #f59a00;
-  }
+  padding: 120px 0;
+  background: var(--color-bg-dark);
+  color: var(--color-bg-light);
+}
+
+.ready-kits__container {
+  padding: var(--container-padding);
+}
+
+.ready-kits__title {
+  margin-bottom: 90px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.ready-kits__slider {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.ready-kits__arrow {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 352px;
+  padding: 0;
+}
+
+.ready-kits__arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.ready-kits__arrow img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.ready-kits__inner {
+  flex: 1;
+}
+
+.ready-kits__body {
+  display: flex;
+  align-items: stretch;
+  gap: 103px;
+  margin-bottom: 60px;
+}
+
+.ready-kits__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ready-kits__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ready-kits__main-img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+.ready-kits__thumbs {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ready-kits__thumbs img {
+  width: 100%;
+  object-fit: cover;
+  width: calc(33.333% - 14px);
+  min-width: 120px;
+  max-width: 240px;
+  height: auto;
+  flex: 1;
+}
+
+.ready-kits__content {
+  flex: 1;
+}
+
+.ready-kits__subtitle {
+  margin-bottom: 20px;
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.ready-kits__description {
+  margin-bottom: 40px;
+  font-size: var(--font-size-large);
+  line-height: 1.2;
+}
+
+.ready-kits__group {
+  margin-bottom: 40px;
+}
+
+.ready-kits__group h4 {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: var(--font-size-large);
+}
+
+.ready-kits__group p {
+  margin-bottom: 15px;
+  font-size: var(--font-size-large);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ready-kits__group p:last-child {
+  margin-bottom: 0;
+}
+
+.ready-kits__price {
+  margin-bottom: 40px;
+}
+
+.ready-kits__price h4 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: var(--font-size-large);
+}
+
+.ready-kits__price p {
+  font-size: var(--font-size-large);
+  font-weight: 500;
+}
+
+.ready-kits__button {
+  min-height: var(--btn-height);
+  border-radius: var(--btn-radius);
+  background: var(--color-accent);
+  color: var(--color-bg-light);
+  font-size: var(--font-size-base);
+}
+
+.ready-kits__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 60px;
+}
+
+.ready-kits__dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-bg-light);
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.ready-kits__dot--active {
+  opacity: 1;
+  background: var(--color-accent);
+}
 
 /* CSS 8 блок */
 .advantages {
   padding: 200px 0;
-  background: #fff;
 }
 
 .advantages__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
 .advantages__header {
@@ -782,16 +760,14 @@ p {
 }
 
 .advantages__title {
-  font-family: "Inter", sans-serif;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   line-height: 1.2;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .advantages__subtitle {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: var(--font-size-large);
   line-height: 1.2;
 }
 
@@ -829,41 +805,36 @@ p {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #263746;
+  background: var(--color-icon-bg);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .advantages__item--accent .advantages__icon {
-  background: #f58b02;
+  background: var(--color-accent-orange);
 }
 
 .advantages__item-content h3 {
   margin: 0 0 30px;
-  font-family: "Inter", sans-serif;
-  font-size: 32px;
+  font-size: clamp(24px, 5vw, 32px);
   font-weight: 500;
 }
 
 .advantages__item-content p {
   margin: 0;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: var(--font-size-base);
 }
 
 /* CSS 9 блок */
 .eco-safety {
   padding: 120px 0;
   background: var(--color-bg-dark);
-  color: #ffffff;
+  color: var(--color-bg-light);
 }
 
 .eco-safety__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
 .eco-safety__header {
@@ -874,15 +845,13 @@ p {
 }
 
 .eco-safety__title {
-  font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   text-transform: uppercase;
 }
 
 .eco-safety__text {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: var(--font-size-large);
 }
 
 .eco-safety__items {
@@ -900,8 +869,8 @@ p {
 }
 
 .eco-safety__icon {
-  width: 200px;
-  height: 200px;
+  width: clamp(100px, 14vw, 200px);
+  height: clamp(100px, 14vw, 200px);
   border-radius: 50%;
   background: var(--color-bg-gray);
   display: flex;
@@ -910,9 +879,14 @@ p {
   margin-bottom: 40px;
 }
 
+.eco-safety__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .eco-safety__caption {
-  font-family: "Inter", sans-serif;
-  font-size: 32px;
+  font-size: clamp(18px, 2.5vw, 32px);
   line-height: 1.2;
   font-weight: 600;
   text-align: center;
@@ -920,27 +894,28 @@ p {
 }
 
 .eco-safety__button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: var(--btn-height);
   margin: 0 auto;
-  height: 64px;
   padding: 0 50px;
-  border-radius: 10px;
-  background: #f58b02;
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
+  border-radius: var(--btn-radius);
+  background: var(--color-accent-orange);
+  color: var(--color-bg-light);
+  font-size: var(--font-size-base);
 }
 
 /* CSS 10 блок */
 .thermal {
   padding-top: 200px;
-  background: #ffffff;
+  background: var(--color-bg-light);
 }
 
 .thermal__container {
   max-width: 100%;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
 .thermal__head {
@@ -949,16 +924,15 @@ p {
 }
 
 .thermal__title {
-  font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   text-transform: uppercase;
   margin-bottom: 40px;
+  overflow-wrap: break-word;
 }
 
 .thermal__text {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: var(--font-size-large);
   max-width: 703px;
 }
 
@@ -976,7 +950,7 @@ p {
 }
 
 .thermal__image {
-  height: 288px;
+  height: clamp(170px, 20vw, 288px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -993,7 +967,7 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 288px;
+  min-height: clamp(210px, 20vw, 288px);
   padding: 45px 20px 44px;
   justify-content: space-between;
 }
@@ -1001,49 +975,39 @@ p {
 .thermal__name {
   min-height: 58px;
   margin-bottom: 20px;
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: var(--font-size-large);
   text-transform: uppercase;
   font-weight: 500;
 }
 
 .thermal__value {
   margin-bottom: 15px;
-  font-family: "Inter", sans-serif;
   font-size: 64px;
   line-height: 1.2;
+  color: var(--color-accent-orange);
 }
 
 .thermal__unit {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
-}
-
-.thermal__value {
-  color: #f58b02;
+  font-size: var(--font-size-large);
 }
 
 .thermal__value--accent {
-  color: #42975a;
+  color: var(--color-accent-alt);
 }
 
 /* CSS 11 блок */
 .certificates {
-  padding: 200px 0;
-  background: #fff;
+  padding: var(--section-padding-lg);
+  background: var(--color-bg-light);
 }
 
 .certificates__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
 .certificates__title {
   margin-bottom: 90px;
-
-  font-family: "Inter", sans-serif;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -1063,9 +1027,7 @@ p {
 
 .certificates__subtitle {
   margin-bottom: 40px;
-
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: var(--font-size-large);
 }
 
 .certificates__item img {
@@ -1074,7 +1036,6 @@ p {
 }
 
 /* CSS 12 блок */
-/* блок */
 .consultation {
   position: relative;
   padding: 102px 0;
@@ -1082,37 +1043,26 @@ p {
   overflow: hidden;
 }
 
-/* контейнер */
 .consultation__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 110px;
+  padding: var(--container-padding);
 }
 
-/* заголовок */
 .consultation__title {
   margin-bottom: 30px;
-
-  font-family: "Inter", sans-serif;
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, var(--font-size-title));
   font-weight: 700;
   text-transform: uppercase;
 }
 
-/* подзаголовок */
 .consultation__subtitle {
   margin-bottom: 60px;
-
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: var(--font-size-large);
 }
 
-/* форма */
 .consultation__form {
   margin-bottom: 60px;
 }
 
-/* поля + кнопка */
 .consultation__fields {
   display: flex;
   flex-wrap: wrap;
@@ -1120,58 +1070,50 @@ p {
   margin-bottom: 30px;
 }
 
-/* инпуты */
 .consultation__input {
   min-width: 290px;
   height: 64px;
   padding: 0 30px;
   border-radius: 10px;
   border: none;
-  background: #ffffff;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
+  background: var(--color-bg-light);
+  font-size: var(--font-size-base);
 }
 
-/* кнопка */
 .consultation__button {
   height: 64px;
   padding: 0 76px;
   border-radius: 10px;
-  background: #f59a00;
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-bg-light);
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: var(--font-size-base);
   cursor: pointer;
 }
 
-/* чекбокс */
 .consultation__agreement {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 24px;
+  font-size: var(--font-size-large);
 }
 
 .consultation__agreement a {
   color: #f59a00;
 }
 
-/* блок мессенджеров */
 .consultation__messengers {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-/* текст */
 .consultation__messengers-text {
-  font-size: 24px;
+  font-size: var(--font-size-large);
 }
 
-/* иконки */
 .consultation__messengers-list {
   display: flex;
   gap: 10px;
@@ -1182,7 +1124,6 @@ p {
   height: 64px;
 }
 
-/* человек */
 .consultation__image {
   position: absolute;
   right: 20px;
@@ -1196,10 +1137,11 @@ p {
   height: auto;
 }
 
-.consultation__checkbox {
+.consultation__checkbox { 
+  flex: 0 0 24px;
   width: 24px;
   height: 24px;
-  appearance: none; /* убираем стандартный вид */
+  appearance: none;
   -webkit-appearance: none;
   border: 2px solid var(--color-text-primary);
   border-radius: 4px;
@@ -1208,7 +1150,6 @@ p {
   position: relative;
 }
 
-/* галочка */
 .consultation__checkbox:checked::after {
   content: "";
   position: absolute;
@@ -1219,4 +1160,845 @@ p {
   border-right: 2px solid var(--color-text-primary);
   border-bottom: 2px solid var(--color-text-primary);
   transform: rotate(45deg);
+}
+
+/* =========================================================
+                            АДАПТИВ
+   ========================================================= */
+
+@media (max-width: 1439px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .konda-page {
+    overflow-x: hidden;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero__container,
+  .glued-timber__container,
+  .timber-profiles__container,
+  .timber-sizes__container,
+  .timber-process__container,
+  .wall-kits__container,
+  .ready-kits__container,
+  .advantages__container,
+  .eco-safety__container,
+  .certificates__container,
+  .consultation__container {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  .glued-timber__body {
+    gap: 90px;
+  }
+
+  .timber-sizes__container {
+    gap: 70px;
+  }
+
+  .ready-kits__slider {
+    gap: 28px;
+  }
+
+  .ready-kits__body {
+    gap: 70px;
+  }
+
+  .advantages__header {
+    gap: 60px;
+  }
+
+  .advantages__content {
+    gap: 56px;
+  }
+
+  .eco-safety__header {
+    grid-template-columns: minmax(360px, 497px) 1fr;
+    gap: 70px;
+  }
+
+  .thermal__container {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  .thermal__grid {
+    margin-left: -70px;
+    margin-right: -70px;
+  }
+
+  .certificates__list {
+    gap: 140px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .thermal__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1280px) {
+    .consultation__image {
+      display: none;
+    }
+  }
+
+@media (max-width: 1200px) {
+  :root {
+    --font-size-h3: 30px;
+    --font-size-large: 22px;
+    --font-size-base: 18px;
+  }
+
+  .hero__container,
+  .glued-timber__container,
+  .timber-profiles__container,
+  .timber-sizes__container,
+  .timber-process__container,
+  .wall-kits__container,
+  .ready-kits__container,
+  .advantages__container,
+  .eco-safety__container,
+  .certificates__container,
+  .consultation__container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-bottom: 70px;
+  }
+
+  .hero__offer {
+    margin-bottom: 90px;
+  }
+
+  .glued-timber__body {
+    gap: 48px;
+  }
+
+  .glued-timber__image {
+    flex: 0 1 48%;
+  }
+
+  .glued-timber__content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .timber-sizes__container {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .timber-sizes__image {
+    align-self: center;
+  }
+
+  .timber-process__item {
+    padding: 30px;
+  }
+
+  .ready-kits__body {
+    gap: 48px;
+  }
+
+  .ready-kits__gallery {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ready-kits__content {
+    min-width: 0;
+  }
+
+  .ready-kits__arrow {
+    margin-top: 300px;
+  }
+
+  .advantages__content {
+    gap: 40px;
+  }
+
+  .advantages__images {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .advantages__list {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .eco-safety__header {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .thermal__container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .thermal__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-left: -48px;
+    margin-right: -48px;
+  }
+
+  .certificates__list {
+    gap: 90px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --font-size-h3: clamp(26px, 4vw, 30px);
+    --font-size-large: clamp(20px, 3vw, 22px);
+    --font-size-base: 18px;
+  }
+
+  .hero__container,
+  .glued-timber__container,
+  .timber-profiles__container,
+  .timber-sizes__container,
+  .timber-process__container,
+  .wall-kits__container,
+  .ready-kits__container,
+  .advantages__container,
+  .eco-safety__container,
+  .certificates__container,
+  .consultation__container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-top: 120px;
+    padding-bottom: 56px;
+    display: flex;
+  }
+
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: calc(100svh - 176px);
+  }
+
+  .hero__offer {
+    margin-bottom: 56px;
+  }
+
+  .glued-timber,
+  .timber-profiles,
+  .timber-sizes,
+  .wall-kits,
+  .ready-kits,
+  .eco-safety {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .timber-process,
+  .advantages,
+  .certificates {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .glued-timber__title,
+  .timber-profiles__title,
+  .timber-sizes__title,
+  .wall-kits__title,
+  .certificates__title {
+    margin-bottom: 44px;
+  }
+
+  .glued-timber__tabs {
+    margin-bottom: 48px;
+  }
+
+  .glued-timber__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 44%);
+    gap: 40px;
+  }
+
+  .timber-profiles__list,
+  .wall-kits__list,
+  .timber-process__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .timber-process__top {
+    align-items: flex-start;
+  }
+
+  .ready-kits__title {
+    margin-bottom: 56px;
+  }
+
+  .ready-kits__slider {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .ready-kits__inner {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .ready-kits__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .ready-kits__arrow {
+    grid-row: 2;
+    margin-top: 0;
+  }
+
+  .ready-kits__arrow--prev {
+    justify-self: start;
+  }
+
+  .ready-kits__arrow--next {
+    justify-self: end;
+  }
+
+  .ready-kits__dots {
+    margin-top: 32px;
+  }
+
+  .advantages__header {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .advantages__content {
+    display: grid;
+    grid-template-columns: minmax(260px, 40%) minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .advantages__item {
+    gap: 24px;
+  }
+
+  .advantages__icon {
+    flex-basis: 72px;
+    width: 72px;
+    height: 72px;
+  }
+
+  .eco-safety__header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 64px;
+  }
+
+  .eco-safety__items {
+    justify-content: center;
+    margin-bottom: 64px;
+  }
+
+  .thermal {
+    padding-top: 120px;
+  }
+
+  .thermal__container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .thermal__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-left: -32px;
+    margin-right: -32px;
+  }
+
+  .thermal__image {
+    height: 240px;
+  }
+
+  .thermal__body {
+    min-height: 240px;
+  }
+
+  .certificates__list {
+    gap: 64px;
+  }
+
+  .consultation {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .consultation__content {
+    max-width: 100%;
+  }
+
+  .consultation__image {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-h3: clamp(22px, 6vw, 28px);
+    --font-size-large: clamp(18px, 5vw, 22px);
+    --font-size-base: 17px;
+    --btn-height: 58px;
+  }
+
+  .hero__container,
+  .glued-timber__container,
+  .timber-profiles__container,
+  .timber-sizes__container,
+  .timber-process__container,
+  .wall-kits__container,
+  .ready-kits__container,
+  .advantages__container,
+  .eco-safety__container,
+  .certificates__container,
+  .consultation__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .btn,
+  .glued-timber__button,
+  .wall-kits__button,
+  .ready-kits__button,
+  .consultation__button {
+    width: 100%;
+    max-width: 100%;
+    min-height: var(--btn-height);
+    height: var(--btn-height);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-top: 88px;
+    padding-bottom: 32px;
+    background-position: center;
+  }
+
+  .hero__container {
+    min-height: calc(100svh - 120px);
+  }
+
+  .hero__offer {
+    margin-bottom: 36px;
+  }
+
+  .hero__title {
+    line-height: 1.24;
+  }
+
+  .hero__title-line--bottom {
+    text-align: left;
+  }
+
+  .hero__btn {
+    width: 100%;
+    margin-top: 32px;
+    margin-left: 0;
+  }
+
+  .glued-timber,
+  .timber-profiles,
+  .timber-sizes,
+  .wall-kits,
+  .ready-kits,
+  .eco-safety {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .timber-process,
+  .advantages,
+  .certificates {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .glued-timber__title,
+  .timber-profiles__title,
+  .timber-sizes__title,
+  .wall-kits__title,
+  .thermal__title,
+  .certificates__title,
+  .consultation__title {
+    margin-bottom: 32px;
+  }
+
+  .glued-timber__tabs {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .glued-timber__tab {
+    height: var(--btn-height);
+  }
+
+  .glued-timber__body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .glued-timber__image {
+    order: -1;
+    width: 100%;
+  }
+
+  .glued-timber__list,
+  .glued-timber__price {
+    margin-bottom: 28px;
+  }
+
+  .timber-profiles__list,
+  .wall-kits__list,
+  .timber-process__list {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .timber-profiles__image,
+  .wall-kits__img {
+    margin-bottom: 20px;
+  }
+
+  .timber-sizes__container {
+    gap: 36px;
+  }
+
+  .timber-sizes__group--vertical,
+  .timber-sizes__group--horizontal {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .timber-sizes__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .timber-sizes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .timber-sizes__btn {
+    width: 100%;
+  }
+
+  .timber-process__top {
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 40px;
+  }
+
+  .timber-process__arrows {
+    align-self: flex-end;
+  }
+
+  .timber-process__item {
+    padding: 28px;
+  }
+
+  .wall-kits__text,
+  .wall-kits__list {
+    margin-bottom: 40px;
+  }
+
+  .ready-kits__title {
+    margin-bottom: 40px;
+  }
+
+  .ready-kits__body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ready-kits__thumbs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .ready-kits__thumbs img {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .ready-kits__arrow {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ready-kits__arrow img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ready-kits__description,
+  .ready-kits__group,
+  .ready-kits__price {
+    margin-bottom: 28px;
+  }
+
+  .advantages__header {
+    margin-bottom: 40px;
+  }
+
+  .advantages__content {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .advantages__images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .advantages__item {
+    gap: 18px;
+  }
+
+  .advantages__item-content h3 {
+    margin-bottom: 16px;
+  }
+
+  .eco-safety__header {
+    margin-bottom: 48px;
+  }
+
+  .eco-safety__items {
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .eco-safety__icon {
+    margin-bottom: 24px;
+  }
+
+  .thermal {
+    padding-top: 80px;
+  }
+
+  .thermal__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .thermal__head {
+    margin-bottom: 40px;
+  }
+
+  .thermal__grid {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    margin-right: 0;
+    gap: 16px;
+  }
+
+  .thermal__image {
+    height: auto;
+    min-height: 190px;
+    padding: 28px;
+  }
+
+  .thermal__body {
+    min-height: auto;
+    padding: 28px 20px;
+  }
+
+  .thermal__name {
+    min-height: auto;
+  }
+
+  .thermal__value {
+    font-size: clamp(42px, 14vw, 58px);
+  }
+
+  .certificates__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .certificates__title {
+    margin-bottom: 48px;
+  }
+
+  .consultation {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .consultation__subtitle,
+  .consultation__form {
+    margin-bottom: 36px;
+  }
+
+  .consultation__fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .consultation__input {
+    min-width: 0;
+    width: 100%;
+    height: var(--btn-height);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .consultation__agreement {
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .consultation__messengers {
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-h3: clamp(21px, 6vw, 26px);
+    --font-size-large: 18px;
+    --font-size-base: 16px;
+    --btn-height: 56px;
+  }
+
+  .hero__container,
+  .glued-timber__container,
+  .timber-profiles__container,
+  .timber-sizes__container,
+  .timber-process__container,
+  .wall-kits__container,
+  .ready-kits__container,
+  .advantages__container,
+  .eco-safety__container,
+  .certificates__container,
+  .consultation__container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero {
+    padding-top: 72px;
+    padding-bottom: 28px;
+  }
+
+  .hero__container {
+    min-height: calc(100svh - 100px);
+  }
+
+  .hero__text br {
+    display: none;
+  }
+
+  .glued-timber,
+  .timber-profiles,
+  .timber-sizes,
+  .wall-kits,
+  .ready-kits,
+  .eco-safety {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  .timber-process,
+  .advantages,
+  .certificates {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .timber-sizes__group--vertical,
+  .timber-sizes__group--horizontal {
+    flex-direction: column;
+  }
+
+  .timber-sizes__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .advantages__images {
+    grid-template-columns: 1fr;
+  }
+
+  .advantages__item {
+    flex-direction: column;
+  }
+
+  .advantages__icon {
+    flex-basis: auto;
+    width: 64px;
+    height: 64px;
+  }
+
+  .ready-kits__slider {
+    gap: 16px;
+  }
+
+  .ready-kits__arrow {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ready-kits__arrow img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ready-kits__dots {
+    margin-top: 28px;
+  }
+
+  .thermal__image {
+    padding: 20px;
+  }
+
+  .consultation__messenger img {
+    width: 56px;
+    height: 56px;
+  }
 }

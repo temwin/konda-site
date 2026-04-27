@@ -15,6 +15,7 @@
 
   <body>
     <main class="konda-page">
+      <!-- первая секция -->
       <section class="hero">
         <div class="hero__container">
           <div class="hero__offer">
@@ -27,14 +28,18 @@
               </span>
             </h1>
 
-            <button class="hero__btn btn" type="button">Оставить заявку</button>
+            <a
+              href="https://katalog-domov.shop/proektirovanie"
+              class="btn hero__btn"
+            >
+              Оставить заявку
+            </a>
           </div>
 
           <div class="hero__bottom">
             <p class="hero__text">
-              Собственное производство.<br />
-              Точные размеры. Готовые<br />
-              решения для строительства
+              Собственное производство. Точные размеры. Готовые решения для
+              строительства
             </p>
           </div>
         </div>
@@ -49,20 +54,30 @@
             <button
               class="glued-timber__tab glued-timber__tab--active"
               type="button"
+              data-timber-tab="finger-jointed"
+              role="tab"
+              aria-selected="true"
             >
               Сращенный брус
             </button>
 
-            <button class="glued-timber__tab" type="button">
+            <button
+              class="glued-timber__tab"
+              type="button"
+              data-timber-tab="solid-lamella"
+              role="tab"
+              aria-selected="false"
+            >
               Цельноламельный брус
             </button>
           </div>
-
-          <div class="glued-timber__body">
+          <div class="glued-timber__body" data-timber-content>
             <div class="glued-timber__content">
-              <h3 class="glued-timber__subtitle">Сращенный брус</h3>
+              <h3 class="glued-timber__subtitle" data-timber-title>
+                Сращенный брус
+              </h3>
 
-              <ul class="glued-timber__list">
+              <ul class="glued-timber__list" data-timber-list>
                 <li>До 12 м</li>
                 <li>Высокая прочность</li>
                 <li>Снимается ствольное напряжение</li>
@@ -70,16 +85,25 @@
               </ul>
 
               <p class="glued-timber__price">
-                Цена: <strong>52 000 ₽ / м³</strong>
+                Цена: <strong data-timber-price>52 000 ₽ / м³</strong>
               </p>
 
-              <button class="glued-timber__button btn" type="button">
+              <a
+                href="https://konda-dom.ru/calculator"
+                class="glued-timber__button btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Рассчитать стоимость
-              </button>
+              </a>
             </div>
 
             <div class="glued-timber__image">
-              <img src="img/фото.jpg" alt="Сращенный брус" />
+              <img
+                src="img/finger-jointed-timber.jpg"
+                alt="Сращенный брус"
+                data-timber-image
+              />
             </div>
           </div>
         </div>
@@ -91,26 +115,38 @@
           <h2 class="timber-profiles__title">Профили клееного бруса</h2>
 
           <div class="timber-profiles__list">
-            <div class="timber-profiles__item">
+            <article class="timber-profiles__item">
               <div class="timber-profiles__image">
-                <img src="img/Rectangle 32.jpg" alt="Прямоугольный профиль" />
+                <img
+                  src="img/rectangular-timber-profile.jpg"
+                  alt="Прямоугольный профиль клееного бруса"
+                  loading="lazy"
+                />
               </div>
               <h3 class="timber-profiles__name">Прямоугольный</h3>
-            </div>
+            </article>
 
-            <div class="timber-profiles__item">
+            <article class="timber-profiles__item">
               <div class="timber-profiles__image">
-                <img src="img/Rectangle 40.jpg" alt="Европейский профиль" />
+                <img
+                  src="img/european-timber-profile.jpg"
+                  alt="Европейский профиль клееного бруса"
+                  loading="lazy"
+                />
               </div>
               <h3 class="timber-profiles__name">Европейский</h3>
-            </div>
+            </article>
 
-            <div class="timber-profiles__item">
+            <article class="timber-profiles__item">
               <div class="timber-profiles__image">
-                <img src="img/Rectangle 41.jpg" alt="Немецкий профиль" />
+                <img
+                  src="img/german-timber-profile.jpg"
+                  alt="Немецкий профиль клееного бруса"
+                  loading="lazy"
+                />
               </div>
               <h3 class="timber-profiles__name">Немецкий</h3>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -122,45 +158,110 @@
           <div class="timber-sizes__content">
             <h2 class="timber-sizes__title">Размеры и сечения</h2>
 
-            <!-- верхний ряд -->
             <div class="timber-sizes__group timber-sizes__group--vertical">
-              <img src="img/Frame 117.svg" alt="" class="timber-sizes__icon" />
+              <img
+                src="img/icon-timber-height.svg"
+                alt=""
+                class="timber-sizes__icon"
+                loading="lazy"
+              />
 
               <div class="timber-sizes__buttons">
                 <button
                   class="timber-sizes__btn timber-sizes__btn--active"
                   type="button"
+                  data-timber-height="185"
+                  aria-pressed="true"
                 >
                   185 мм
                 </button>
-                <button class="timber-sizes__btn" type="button">265 мм</button>
+                <button
+                  class="timber-sizes__btn"
+                  type="button"
+                  data-timber-height="265"
+                  aria-pressed="false"
+                >
+                  265 мм
+                </button>
               </div>
             </div>
 
-            <!-- нижние кнопки -->
             <div class="timber-sizes__group timber-sizes__group--horizontal">
-              <img src="img/Frame 118.svg" alt="" class="timber-sizes__icon" />
+              <img
+                src="img/icon-timber-width.svg"
+                alt=""
+                class="timber-sizes__icon"
+                loading="lazy"
+              />
 
               <div class="timber-sizes__grid">
-                <button class="timber-sizes__btn" type="button">120 мм</button>
-                <button class="timber-sizes__btn" type="button">135 мм</button>
+                <button
+                  class="timber-sizes__btn"
+                  type="button"
+                  data-timber-width="120"
+                  aria-pressed="false"
+                >
+                  120 мм
+                </button>
+                <button
+                  class="timber-sizes__btn"
+                  type="button"
+                  data-timber-width="135"
+                  aria-pressed="false"
+                >
+                  135 мм
+                </button>
                 <button
                   class="timber-sizes__btn timber-sizes__btn--active"
                   type="button"
+                  data-timber-width="160"
+                  aria-pressed="true"
                 >
                   160 мм
                 </button>
-                <button class="timber-sizes__btn" type="button">180 мм</button>
-
-                <button class="timber-sizes__btn" type="button">200 мм</button>
-                <button class="timber-sizes__btn" type="button">225 мм</button>
-                <button class="timber-sizes__btn" type="button">240 мм</button>
+                <button
+                  class="timber-sizes__btn"
+                  type="button"
+                  data-timber-width="180"
+                  aria-pressed="false"
+                >
+                  180 мм
+                </button>
+                <button
+                  class="timber-sizes__btn"
+                  type="button"
+                  data-timber-width="200"
+                  aria-pressed="false"
+                >
+                  200 мм
+                </button>
+                <button
+                  class="timber-sizes__btn"
+                  type="button"
+                  data-timber-width="225"
+                  aria-pressed="false"
+                >
+                  225 мм
+                </button>
+                <button
+                  class="timber-sizes__btn"
+                  type="button"
+                  data-timber-width="240"
+                  aria-pressed="false"
+                >
+                  240 мм
+                </button>
               </div>
             </div>
           </div>
 
           <div class="timber-sizes__image">
-            <img src="img/фотка.svg" alt="Размер бруса" />
+            <img
+              src="img/timber-size-185-160.jpg"
+              alt="Брус сечением 185 на 160 мм"
+              data-timber-size-image
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -168,7 +269,6 @@
       <!-- пятая секция -->
       <section class="timber-process">
         <div class="timber-process__container">
-          <!-- верхняя часть -->
           <div class="timber-process__top">
             <div class="timber-process__head">
               <h2 class="timber-process__title">
@@ -181,40 +281,39 @@
             </div>
 
             <div class="timber-process__arrows">
-              <img src="img/Vector 3.svg" alt="Вперед" />
-              <img src="img/Vector 2.svg" alt="Назад" />
+              <img src="img/arrow-prev.svg" alt="Назад" />
+              <img src="img/arrow-next.svg" alt="Вперед" />
             </div>
           </div>
 
-          <!-- карточки -->
           <div class="timber-process__list">
-            <div class="timber-process__item">
+            <article class="timber-process__item">
               <h3 class="timber-process__item-title">Изготовление бруса</h3>
               <p class="timber-process__item-text">
                 Производство клеёного бруса выбранного сечения с контролем
                 влажности 8–12%
               </p>
-            </div>
+            </article>
 
-            <div class="timber-process__item">
+            <article class="timber-process__item">
               <h3 class="timber-process__item-title">Нарезка по проекту</h3>
               <p class="timber-process__item-text">
                 Точная подготовка всех элементов в соответствии с проектной
                 документацией
               </p>
-            </div>
+            </article>
 
-            <div class="timber-process__item">
+            <article class="timber-process__item">
               <h3 class="timber-process__item-title">Подготовка проёмов</h3>
               <p class="timber-process__item-text">
                 Формирование пазов под установку обсадных коробок
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- шестая секция  -->
+      <!-- шестая секция -->
       <section class="wall-kits">
         <div class="wall-kits__container">
           <h2 class="wall-kits__title">Стенокомплекты</h2>
@@ -225,146 +324,193 @@
             понравившемуся вам проекту
           </p>
 
-          <div class="wall-kits__list">
-            <div class="wall-kits__item">
-              <img src="img/Rectangle 22.jpg" alt="" class="wall-kits__img" />
+          <ul class="wall-kits__list">
+            <li class="wall-kits__item">
+              <img
+                src="img/wall-kit-project.jpg"
+                alt="Изготовление стенокомплекта по готовому проекту"
+                class="wall-kits__img"
+                loading="lazy"
+              />
               <div class="wall-kits__row">
                 <p>Изготовление по готовым проектам</p>
                 <img
-                  src="img/Arrow_Right_LG.svg"
+                  src="img/arrow-right.svg"
                   alt=""
                   class="wall-kits__arrow"
+                  aria-hidden="true"
                 />
               </div>
-            </div>
+            </li>
 
-            <div class="wall-kits__item">
-              <img src="img/Rectangle 23.jpg" alt="" class="wall-kits__img" />
+            <li class="wall-kits__item">
+              <img
+                src="img/wall-kit-design.jpg"
+                alt="Индивидуальное проектирование стенокомплекта"
+                class="wall-kits__img"
+                loading="lazy"
+              />
               <div class="wall-kits__row">
                 <p>Индивидуальное проектирование в подарок</p>
                 <img
-                  src="img/Arrow_Right_LG.svg"
+                  src="img/arrow-right.svg"
                   alt=""
                   class="wall-kits__arrow"
+                  aria-hidden="true"
                 />
               </div>
-            </div>
+            </li>
 
-            <div class="wall-kits__item">
-              <img src="img/Rectangle 24.jpg" alt="" class="wall-kits__img" />
+            <li class="wall-kits__item">
+              <img
+                src="img/wall-kit-production.jpg"
+                alt="Точная подгонка элементов стенокомплекта"
+                class="wall-kits__img"
+                loading="lazy"
+              />
               <div class="wall-kits__row">
                 <p>Точная подгонка всех элементов</p>
                 <img
-                  src="img/Arrow_Right_LG.svg"
+                  src="img/arrow-right.svg"
                   alt=""
                   class="wall-kits__arrow"
+                  aria-hidden="true"
                 />
               </div>
-            </div>
+            </li>
 
-            <div class="wall-kits__item">
-              <img src="img/Rectangle 25.jpg" alt="" class="wall-kits__img" />
+            <li class="wall-kits__item">
+              <img
+                src="img/wall-kit-assembly.jpg"
+                alt="Сборка стенокомплекта по инструкции"
+                class="wall-kits__img"
+                loading="lazy"
+              />
               <div class="wall-kits__row">
                 <p>Лёгкая сборка по инструкции</p>
                 <img
-                  src="img/Arrow_Right_LG.svg"
+                  src="img/arrow-right.svg"
                   alt=""
                   class="wall-kits__arrow"
+                  aria-hidden="true"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
 
           <div class="wall-kits__bottom">
             <p class="wall-kits__question">
               Нет проекта? Разработаем бесплатно при заказе
             </p>
 
-            <button class="wall-kits__button btn" type="button">
+            <a
+              href="https://konda-dom.ru/calculator"
+              class="wall-kits__button btn"
+            >
               Рассчитать стоимость
-            </button>
+            </a>
           </div>
         </div>
       </section>
 
- <!-- седьмая секция -->
-<section class="ready-kits">
-  <div class="ready-kits__container">
-    <h2 class="ready-kits__title">
-      Готовые стенокомплекты<br />
-      из клееного бруса
-    </h2>
+      <!-- седьмая секция -->
+      <section class="ready-kits" data-ready-kits>
+        <div class="ready-kits__container">
+          <h2 class="ready-kits__title">
+            Готовые стенокомплекты<br />
+            из клееного бруса
+          </h2>
 
-    <!-- новая обёртка для слайдера -->
-    <div class="ready-kits__slider">
-      <button class="ready-kits__arrow ready-kits__arrow--prev" type="button">
-        <img src="img/Frame 250.svg" alt="Назад" />
-      </button>
+          <div class="ready-kits__slider">
+            <button
+              class="ready-kits__arrow ready-kits__arrow--prev"
+              type="button"
+              aria-label="Предыдущий проект"
+              data-ready-prev
+            >
+              <img src="img/arrow-back.svg" alt="" aria-hidden="true" />
+            </button>
 
-      <div class="ready-kits__inner">
-        <div class="ready-kits__body">
-          <!-- галерея -->
-          <div class="ready-kits__gallery">
-            <img
-              class="ready-kits__main-img"
-              src="img/Rectangle 4132.jpg"
-              alt="Проект Алтай"
-            />
-            <div class="ready-kits__thumbs">
-              <img src="img/Rectangle 4134.jpg" alt="План проекта Алтай" />
-              <img src="img/Rectangle 4135.jpg" alt="Модель проекта Алтай" />
+            <div class="ready-kits__inner" data-ready-content>
+              <div class="ready-kits__body">
+                <div class="ready-kits__gallery">
+                  <img
+                    class="ready-kits__main-img"
+                    src="img/altai-main.jpg"
+                    alt="Проект Алтай"
+                    data-ready-main-image
+                    loading="lazy"
+                  />
+
+                  <div class="ready-kits__thumbs">
+                    <img
+                      src="img/altai-plan.jpg"
+                      alt="Планировка проекта Алтай"
+                      data-ready-thumb-one
+                      loading="lazy"
+                    />
+                    <img
+                      src="img/altai-3d.jpg"
+                      alt="3D-модель проекта Алтай"
+                      data-ready-thumb-two
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                <div class="ready-kits__content">
+                  <h3 class="ready-kits__subtitle" data-ready-title>
+                    Проект Алтай
+                  </h3>
+
+                  <p class="ready-kits__description" data-ready-description>
+                    Современный дом для круглогодичного проживания с продуманной
+                    планировкой и панорамными окнами
+                  </p>
+
+                  <div class="ready-kits__group">
+                    <h4>Характеристики</h4>
+                    <p data-ready-area>Площадь: 69 м²</p>
+                    <p data-ready-size>Габариты: 8x10 м</p>
+                    <p data-ready-floors>Количество этажей: 1</p>
+                  </div>
+
+                  <div class="ready-kits__group">
+                    <h4>Материал</h4>
+                    <p data-ready-profile>Профиль: европейский</p>
+                    <p data-ready-section>Сечение: 160 × 185 мм</p>
+                  </div>
+
+                  <div class="ready-kits__price">
+                    <h4>Стоимость стенокомплекта</h4>
+                    <p data-ready-price>от 1 350 000 ₽</p>
+                  </div>
+
+                  <a
+                    href="https://katalog-domov.shop/proektirovanie"
+                    class="ready-kits__button btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Оставить заявку
+                  </a>
+                </div>
+              </div>
+
+              <div class="ready-kits__dots" data-ready-dots></div>
             </div>
-          </div>
 
-          <!-- контент -->
-          <div class="ready-kits__content">
-            <h3 class="ready-kits__subtitle">Проект Алтай</h3>
-            <p class="ready-kits__description">
-              Современный дом для круглогодичного проживания с продуманной
-              планировкой и панорамными окнами
-            </p>
-
-            <div class="ready-kits__group">
-              <h4>Характеристики</h4>
-              <p>Площадь: 69 м²</p>
-              <p>Габариты: 8x10 м</p>
-              <p>Количество этажей: 1</p>
-            </div>
-
-            <div class="ready-kits__group">
-              <h4>Материал</h4>
-              <p>Профиль: европейский</p>
-              <p>Сечение: 160 × 185 мм</p>
-            </div>
-
-            <div class="ready-kits__price">
-              <h4>Стоимость стенокомплекта</h4>
-              <p>от 1 350 000 ₽</p>
-            </div>
-
-            <button class="ready-kits__button" type="button">
-              Оставить заявку
+            <button
+              class="ready-kits__arrow ready-kits__arrow--next"
+              type="button"
+              aria-label="Следующий проект"
+              data-ready-next
+            >
+              <img src="img/arrow-forward.svg" alt="" aria-hidden="true" />
             </button>
           </div>
         </div>
-
-        <!-- точки -->
-        <div class="ready-kits__dots">
-          <span class="ready-kits__dot ready-kits__dot--active"></span>
-          <span class="ready-kits__dot"></span>
-          <span class="ready-kits__dot"></span>
-          <span class="ready-kits__dot"></span>
-          <span class="ready-kits__dot"></span>
-          <span class="ready-kits__dot"></span>
-        </div>
-      </div>
-
-      <button class="ready-kits__arrow ready-kits__arrow--next" type="button">
-        <img src="img/Frame 249.svg" alt="Вперёд" />
-      </button>
-    </div>
-  </div>
-</section>
+      </section>
 
       <!-- восьмая секция  -->
       <section class="advantages">
@@ -379,14 +525,26 @@
 
           <div class="advantages__content">
             <div class="advantages__images">
-              <img src="img/Rectangle 4130.jpg" alt="" />
-              <img src="img/Rectangle 4131.jpg" alt="" />
+              <img
+                src="img/glued-timber-production.jpg"
+                alt="Производство клееного бруса"
+                loading="lazy"
+              />
+              <img
+                src="img/glued-timber-profile.jpg"
+                alt="Профиль клееного бруса"
+                loading="lazy"
+              />
             </div>
 
             <div class="advantages__list">
               <article class="advantages__item">
                 <div class="advantages__icon">
-                  <img src="img/Home_light-1.svg" alt="" />
+                  <img
+                    src="img/icon-microclimate.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
                 </div>
                 <div class="advantages__item-content">
                   <h3>Комфортный и здоровый микроклимат</h3>
@@ -401,21 +559,21 @@
 
               <article class="advantages__item advantages__item--accent">
                 <div class="advantages__icon">
-                  <img src="img/green2.svg" alt="" />
+                  <img src="img/icon-eco.svg" alt="" aria-hidden="true" />
                 </div>
                 <div class="advantages__item-content">
                   <h3>Природные фитонциды</h3>
                   <p>
                     Содержатся в хвойной древесине. Они обладают
                     антисептическими свойствами, способствуют очищению воздуха и
-                    формируют более благоприятную среду для самочувствия."
+                    формируют более благоприятную среду для самочувствия.
                   </p>
                 </div>
               </article>
 
               <article class="advantages__item">
                 <div class="advantages__icon">
-                  <img src="img/Ruler.svg" alt="" />
+                  <img src="img/icon-geometry.svg" alt="" aria-hidden="true" />
                 </div>
                 <div class="advantages__item-content">
                   <h3>Стабильная геометрия и минимальная усадка</h3>
@@ -431,7 +589,7 @@
 
               <article class="advantages__item advantages__item--accent">
                 <div class="advantages__icon">
-                  <img src="img/Done_duotone_line.svg" alt="" />
+                  <img src="img/icon-precision.svg" alt="" aria-hidden="true" />
                 </div>
                 <div class="advantages__item-content">
                   <h3>Заводская точность изготовления</h3>
@@ -447,7 +605,7 @@
         </div>
       </section>
 
-      <!-- девятая секция  -->
+      <!-- девятая секция -->
       <section class="eco-safety">
         <div class="eco-safety__container">
           <div class="eco-safety__header">
@@ -464,31 +622,40 @@
           </div>
 
           <div class="eco-safety__items">
-            <div class="eco-safety__item">
+            <article class="eco-safety__item">
               <div class="eco-safety__icon">
-                <img src="img/Carbs_light-1.svg" alt="" />
+                <img
+                  src="img/icon-eco-material.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
               </div>
               <p class="eco-safety__caption">Экологично</p>
-            </div>
+            </article>
 
-            <div class="eco-safety__item">
+            <article class="eco-safety__item">
               <div class="eco-safety__icon">
-                <img src="img/humidity_light-1.svg" alt="" />
+                <img src="img/icon-moisture.svg" alt="" aria-hidden="true" />
               </div>
               <p class="eco-safety__caption">Влагостойко</p>
-            </div>
+            </article>
 
-            <div class="eco-safety__item">
+            <article class="eco-safety__item">
               <div class="eco-safety__icon">
-                <img src="img/Chield-1.svg" alt="" />
+                <img src="img/icon-safety.svg" alt="" aria-hidden="true" />
               </div>
               <p class="eco-safety__caption">Безопасно</p>
-            </div>
+            </article>
           </div>
 
-          <button class="eco-safety__button" type="button">
+          <a
+            href="https://konda-dom.ru/produkcziya/"
+            class="eco-safety__button btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Читать подробнее
-          </button>
+          </a>
         </div>
       </section>
 
@@ -507,7 +674,11 @@
           <div class="thermal__grid">
             <article class="thermal__card thermal__card--best">
               <div class="thermal__image">
-                <img src="img/клееный брус.svg" alt="Клееный брус" />
+                <img
+                  src="img/glued-timber.jpg"
+                  alt="Клееный брус"
+                  loading="lazy"
+                />
               </div>
 
               <div class="thermal__body">
@@ -520,8 +691,9 @@
             <article class="thermal__card">
               <div class="thermal__image">
                 <img
-                  src="img/____3d___z0n3zdtqwoz2q6mdz6zo_1 1.svg"
+                  src="img/profiled-timber.jpg"
                   alt="Профилированный брус"
+                  loading="lazy"
                 />
               </div>
 
@@ -535,8 +707,9 @@
             <article class="thermal__card">
               <div class="thermal__image">
                 <img
-                  src="img/____3d__4c8yevpj2y0egzfupth0_0 1.svg"
+                  src="img/hollow-brick.jpg"
                   alt="Пустотелый кирпич"
+                  loading="lazy"
                 />
               </div>
 
@@ -550,8 +723,9 @@
             <article class="thermal__card">
               <div class="thermal__image">
                 <img
-                  src="img/____3d__8n6f3sdwzjht35o4p3vp_0 1.svg"
+                  src="img/foam-concrete.jpg"
                   alt="Пенобетон"
+                  loading="lazy"
                 />
               </div>
 
@@ -564,7 +738,11 @@
 
             <article class="thermal__card">
               <div class="thermal__image">
-                <img src="img/image 102.svg" alt="Железобетон" />
+                <img
+                  src="img/reinforced-concrete.jpg"
+                  alt="Железобетон"
+                  loading="lazy"
+                />
               </div>
 
               <div class="thermal__body">
@@ -583,21 +761,29 @@
           <h2 class="certificates__title">Сертификаты</h2>
 
           <div class="certificates__list">
-            <div class="certificates__item">
+            <article class="certificates__item">
               <p class="certificates__subtitle">
                 Сертификат соответствия<br />на клей
               </p>
 
-              <img src="img/СЕРТИФ НА КЛЕЙ 2.svg" alt="" />
-            </div>
+              <img
+                src="img/certificate-glue.jpg"
+                alt="Сертификат соответствия на клей"
+                loading="lazy"
+              />
+            </article>
 
-            <div class="certificates__item">
+            <article class="certificates__item">
               <p class="certificates__subtitle">
                 Сертификат соответствия<br />на брус
               </p>
 
-              <img src="img/СЕРТИФ НА БРУС.svg" alt="" />
-            </div>
+              <img
+                src="img/certificate-timber.jpg"
+                alt="Сертификат соответствия на брус"
+                loading="lazy"
+              />
+            </article>
           </div>
         </div>
       </section>
@@ -612,33 +798,50 @@
               Оставьте заявку на консультацию специалиста
             </p>
 
-            <form class="consultation__form" action="#">
+            <form class="consultation__form" action="#" method="post">
               <div class="consultation__fields">
                 <input
                   class="consultation__input"
+                  name="fio"
                   type="text"
                   placeholder="Ваше имя*"
+                  required
                 />
                 <input
                   class="consultation__input"
+                  name="tel"
                   type="tel"
                   placeholder="Ваш телефон*"
+                  required
                 />
-
                 <button class="consultation__button" type="submit">
                   Отправить
                   <img
-                    src="img/Arrow_Right_LG 2.svg"
+                    src="img/icon-arrow-right.svg"
                     alt=""
                     class="consultation__button-icon"
+                    aria-hidden="true"
                   />
                 </button>
               </div>
 
               <label class="consultation__agreement">
-                <input type="checkbox" class="consultation__checkbox" />
-                Я согласен(а)
-                <a href="#">на обработку персональных данных</a>
+                <input
+                  type="checkbox"
+                  class="consultation__checkbox"
+                  required
+                />
+
+                <span>
+                  Я согласен(а) на
+                  <a
+                    href="https://konda-dom.ru/policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    обработку персональных данных
+                  </a>
+                </span>
               </label>
             </form>
 
@@ -646,19 +849,31 @@
               <p class="consultation__messengers-text">Или напишите нам</p>
 
               <div class="consultation__messengers-list">
-                <a href="#" class="consultation__messenger">
-                  <img src="img/Frame 220.svg" alt="WhatsApp" />
+                <a
+                  href="https://max.ru/join/h03RD5nF3bIgOTMtUIZt5uXvPQ8aUMlkh_mcTEJyCEM"
+                  class="consultation__messenger"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Написать в Max"
+                >
+                  <img src="img/icon-max.svg" alt="" aria-hidden="true" />
                 </a>
 
-                <a href="#" class="consultation__messenger">
-                  <img src="img/Telegram Fill-1.svg" alt="Telegram" />
+                <a
+                  href="https://t.me/lescom_public"
+                  class="consultation__messenger"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Написать в Telegram"
+                >
+                  <img src="img/icon-telegram.svg" alt="" aria-hidden="true" />
                 </a>
               </div>
             </div>
           </div>
 
           <div class="consultation__image">
-            <img src="img/мужчина пнг.png" alt="" />
+            <img src="img/consultation-man.png" alt="" loading="lazy" />
           </div>
         </div>
       </section>

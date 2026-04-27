@@ -1,0 +1,17 @@
+# системные файлы
+.DS_Store
+Thumbs.db
+
+# редакторы
+.vscode/
+.idea/
+
+# node (если вдруг будет)
+node_modules/
+
+# логи
+*.log
+
+# временные файлы
+*.tmp
+*.swp

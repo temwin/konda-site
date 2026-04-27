@@ -1166,6 +1166,24 @@ p {
                             АДАПТИВ
    ========================================================= */
 
+@media (min-width: 1440px) {
+  .timber-sizes__container {
+    justify-content: space-evenly;
+  }
+
+  .glued-timber__body {
+    justify-content: space-evenly;
+  }
+
+  .eco-safety__items {
+    justify-content: space-around;
+  }
+
+  .advantages__list {
+    justify-content: space-between;
+  }
+}
+
 @media (max-width: 1439px) {
   body {
     overflow-x: hidden;

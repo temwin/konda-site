@@ -1137,7 +1137,7 @@ p {
   height: auto;
 }
 
-.consultation__checkbox { 
+.consultation__checkbox {
   flex: 0 0 24px;
   width: 24px;
   height: 24px;
@@ -1247,10 +1247,10 @@ p {
 }
 
 @media (max-width: 1280px) {
-    .consultation__image {
-      display: none;
-    }
+  .consultation__image {
+    display: none;
   }
+}
 
 @media (max-width: 1200px) {
   :root {
@@ -1667,6 +1667,8 @@ p {
 
   .glued-timber__tab {
     height: var(--btn-height);
+    flex: none;
+    width: 100%;
   }
 
   .glued-timber__body {

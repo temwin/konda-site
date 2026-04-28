@@ -19,8 +19,19 @@
 
   /* Отступы */
   --container-padding: 0 110px;
-  --section-padding-lg: 200px 0;
-  --section-padding-md: 120px 0;
+  --section-padding-lg: 140px 0;
+  --section-padding-md: 90px 0;
+
+  /* Вертикальные отступы */
+  --section-padding: 120px 0;
+  --title-margin: 40px;
+  --group-margin: 30px;
+  --element-margin: 20px;
+
+  /* Отступы между блоками внутри секций */
+  --section-gap-lg: 90px;
+  --section-gap-md: 60px;
+  --section-gap-sm: 40px;
 
   /* Шрифты */
   --font-family: "Inter", sans-serif;
@@ -176,7 +187,7 @@ p {
 
 /* CSS 2 блок */
 .glued-timber {
-  padding: 120px 0 81px;
+  padding: var(--section-padding);
   background: var(--color-bg-gray);
 }
 
@@ -289,7 +300,7 @@ p {
 
 /* CSS 3 блок */
 .timber-profiles {
-  padding: 120px 0;
+  padding: var(--section-padding);
 }
 
 .timber-profiles__container {
@@ -330,7 +341,7 @@ p {
 
 /* CSS 4 блок */
 .timber-sizes {
-  padding: 120px 0;
+  padding: var(--section-padding);
   background: var(--color-bg-gray);
 }
 
@@ -410,7 +421,7 @@ p {
 
 /* CSS 5 блок */
 .timber-process {
-  padding: 200px 0;
+  padding: var(--section-padding);
 }
 
 .timber-process__container {
@@ -477,7 +488,7 @@ p {
 
 /* CSS 6 блок */
 .wall-kits {
-  padding: 120px 0;
+  padding: var(--section-padding);
   background: var(--color-bg-gray);
 }
 
@@ -567,7 +578,7 @@ p {
 
 /* CSS 7 блок */
 .ready-kits {
-  padding: 120px 0;
+  padding: var(--section-padding);
   background: var(--color-bg-dark);
   color: var(--color-bg-light);
 }
@@ -746,7 +757,7 @@ p {
 
 /* CSS 8 блок */
 .advantages {
-  padding: 200px 0;
+  padding: var(--section-padding);
 }
 
 .advantages__container {
@@ -778,8 +789,8 @@ p {
 
 .advantages__images {
   display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
-  gap: 20px;
 }
 
 .advantages__images img {
@@ -828,7 +839,7 @@ p {
 
 /* CSS 9 блок */
 .eco-safety {
-  padding: 120px 0;
+  padding: var(--section-padding);
   background: var(--color-bg-dark);
   color: var(--color-bg-light);
 }
@@ -997,7 +1008,7 @@ p {
 
 /* CSS 11 блок */
 .certificates {
-  padding: var(--section-padding-lg);
+  padding: var(--section-padding);
   background: var(--color-bg-light);
 }
 
@@ -1351,14 +1362,6 @@ p {
     gap: 40px;
   }
 
-  .advantages__images {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   .advantages__list {
     flex: 1;
     min-width: 0;
@@ -1518,9 +1521,20 @@ p {
   }
 
   .advantages__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .advantages__images {
     display: grid;
-    grid-template-columns: minmax(260px, 40%) minmax(0, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .advantages__images img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .advantages__item {
@@ -1799,17 +1813,6 @@ p {
 
   .advantages__header {
     margin-bottom: 40px;
-  }
-
-  .advantages__content {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .advantages__images {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
   }
 
   .advantages__item {

@@ -23,7 +23,7 @@
   --section-padding-md: 90px 0;
 
   /* Вертикальные отступы */
-  --section-padding: 120px 0;
+  --section-padding: 100px 0;
   --title-margin: 40px;
   --group-margin: 30px;
   --element-margin: 20px;
@@ -176,7 +176,6 @@ p {
 .hero__text {
   max-width: 393px;
   font-size: var(--font-size-large);
-  line-height: 1.2;
   font-weight: 400;
   color: var(--color-bg-light);
 }
@@ -201,7 +200,6 @@ p {
   margin-bottom: 60px;
   font-weight: 700;
   font-size: clamp(24px, 6vw, var(--font-size-title));
-  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -219,7 +217,6 @@ p {
   background: transparent;
   font-size: var(--font-size-base);
   font-weight: 400;
-  line-height: 1.2;
 }
 
 .glued-timber__tab--active {
@@ -243,7 +240,6 @@ p {
   margin-bottom: 30px;
   font-weight: 500;
   font-size: clamp(24px, 5vw, 32px);
-  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -254,7 +250,6 @@ p {
   margin-bottom: 40px;
   font-weight: 400;
   font-size: var(--font-size-large);
-  line-height: 1.2;
 }
 
 .glued-timber__list li {
@@ -278,7 +273,6 @@ p {
   margin-bottom: 40px;
   font-weight: 500;
   font-size: var(--font-size-large);
-  line-height: 1.2;
 }
 
 .glued-timber__button {
@@ -311,7 +305,6 @@ p {
   margin-bottom: 60px;
   font-weight: 500;
   font-size: var(--font-size-h3);
-  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -336,7 +329,6 @@ p {
 .timber-profiles__name {
   font-size: var(--font-size-large);
   font-weight: 500;
-  line-height: 1.2;
 }
 
 /* CSS 4 блок */
@@ -360,7 +352,6 @@ p {
   margin-bottom: 60px;
   font-size: var(--font-size-h3);
   font-weight: 500;
-  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -396,7 +387,6 @@ p {
   border: 1px solid var(--color-accent);
   background: transparent;
   font-size: var(--font-size-base);
-  line-height: 1.2;
 }
 
 .timber-sizes__btn--active {
@@ -433,14 +423,12 @@ p {
   margin-bottom: 40px;
   font-weight: 700;
   font-size: clamp(24px, 6vw, var(--font-size-title));
-  line-height: 1.2;
   text-transform: uppercase;
 }
 
 .timber-process__text {
   max-width: 523px;
   font-size: var(--font-size-large);
-  line-height: 1.2;
 }
 
 .timber-process__list {
@@ -460,13 +448,11 @@ p {
   margin-bottom: 20px;
   font-weight: 600;
   font-size: var(--font-size-base);
-  line-height: 1.2;
   text-transform: uppercase;
 }
 
 .timber-process__item-text {
   font-size: var(--font-size-base);
-  line-height: 1.2;
 }
 
 .timber-process__top {
@@ -501,13 +487,11 @@ p {
   font-size: clamp(24px, 6vw, var(--font-size-title));
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.2;
 }
 
 .wall-kits__text {
   margin-bottom: 60px;
   font-size: var(--font-size-large);
-  line-height: 1.2;
   max-width: 741px;
 }
 
@@ -547,7 +531,6 @@ p {
 
 .wall-kits__question {
   font-size: var(--font-size-large);
-  line-height: 1.2;
 }
 
 .wall-kits__button {
@@ -588,10 +571,9 @@ p {
 }
 
 .ready-kits__title {
-  margin-bottom: 90px;
+  margin-bottom: 80px;
   font-size: clamp(24px, 6vw, var(--font-size-title));
   font-weight: 700;
-  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -686,7 +668,6 @@ p {
 .ready-kits__description {
   margin-bottom: 40px;
   font-size: var(--font-size-large);
-  line-height: 1.2;
 }
 
 .ready-kits__group {
@@ -767,19 +748,17 @@ p {
 .advantages__header {
   display: flex;
   gap: 91px;
-  margin-bottom: 90px;
+  margin-bottom: 80px;
 }
 
 .advantages__title {
   font-size: clamp(24px, 6vw, var(--font-size-title));
-  line-height: 1.2;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .advantages__subtitle {
   font-size: var(--font-size-large);
-  line-height: 1.2;
 }
 
 .advantages__content {
@@ -898,7 +877,6 @@ p {
 
 .eco-safety__caption {
   font-size: clamp(18px, 2.5vw, 32px);
-  line-height: 1.2;
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
@@ -920,7 +898,7 @@ p {
 
 /* CSS 10 блок */
 .thermal {
-  padding-top: 200px;
+  padding: var(--section-padding);
   background: var(--color-bg-light);
 }
 
@@ -994,7 +972,6 @@ p {
 .thermal__value {
   margin-bottom: 15px;
   font-size: 64px;
-  line-height: 1.2;
   color: var(--color-accent-orange);
 }
 
@@ -1008,16 +985,16 @@ p {
 
 /* CSS 11 блок */
 .certificates {
-  padding: var(--section-padding);
   background: var(--color-bg-light);
 }
 
 .certificates__container {
   padding: var(--container-padding);
+  margin-bottom: 100px;
 }
 
 .certificates__title {
-  margin-bottom: 90px;
+  margin-bottom: 80px;
   font-size: clamp(24px, 6vw, var(--font-size-title));
   font-weight: 700;
   text-transform: uppercase;
@@ -1309,7 +1286,7 @@ p {
   }
 
   .hero__offer {
-    margin-bottom: 90px;
+    margin-bottom: 80px;
   }
 
   .glued-timber__body {

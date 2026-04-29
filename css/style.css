@@ -2022,8 +2022,8 @@ p {
     height: 42px;
   }
 
-  .advantages__images {
-    grid-template-columns: 1fr;
+  .advantages__images img {
+    max-width: 280px;
   }
 
   .advantages__item {

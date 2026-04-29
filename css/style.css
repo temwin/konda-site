@@ -309,13 +309,15 @@ p {
 }
 
 .timber-profiles__list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 390px));
+  justify-content: center;
   gap: 20px;
 }
 
 .timber-profiles__item {
-  flex: 1 1 0;
-  min-width: 0;
+  max-width: 390px;
+  margin: 0 auto;
 }
 
 .timber-profiles__image {
@@ -324,6 +326,8 @@ p {
 
 .timber-profiles__image img {
   width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .timber-profiles__name {
@@ -637,6 +641,12 @@ p {
   align-items: stretch;
   gap: 103px;
   margin-bottom: 60px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ready-kits__body--changing {
+  opacity: 0;
+  transform: translateX(12px);
 }
 
 .ready-kits__content {
@@ -650,6 +660,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  justify-content: center;
 }
 
 .ready-kits__main-img {
@@ -1498,7 +1509,12 @@ p {
     gap: 40px;
   }
 
-  .timber-profiles__list,
+  .timber-profiles__list {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 390px));
+    justify-content: center;
+    gap: 24px;
+  }
+  
   .wall-kits__list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1752,7 +1768,12 @@ p {
     margin-bottom: 28px;
   }
 
-  .timber-profiles__list,
+  .timber-profiles__list {
+    grid-template-columns: minmax(0, 390px);
+    justify-content: center;
+    gap: 28px;
+  }
+  
   .wall-kits__list {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -1821,16 +1842,22 @@ p {
     gap: 32px;
   }
 
+  .ready-kits__main-img {
+    width: min(100%, 320px);
+    margin: 0 auto;
+  }
+
   .ready-kits__thumbs {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    justify-content: center;
     gap: 12px;
   }
 
   .ready-kits__thumbs img {
     width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
     min-width: 0;
-    max-width: none;
   }
 
   .ready-kits__arrow {

@@ -17,12 +17,9 @@ if (
   const timberData = {
     "finger-jointed": {
       title: "Сращенный брус",
-      list: [
-        "До 12 м",
-        "Высокая прочность",
-        "Снимается ствольное напряжение",
-        "Удаление дефектов",
-      ],
+      list: timberSettings.dataset.fingerList
+        .split("\n")
+        .filter((item) => item.trim() !== ""),
       price: timberSettings.dataset.fingerPrice,
       image: timberSettings.dataset.fingerImage,
       alt: "Сращенный брус",
@@ -30,7 +27,9 @@ if (
 
     "solid-lamella": {
       title: "Цельноламельный брус",
-      list: ["До 6 м", "Доступная цена", "Однородная текстура дерева"],
+      list: timberSettings.dataset.solidList
+        .split("\n")
+        .filter((item) => item.trim() !== ""),
       price: timberSettings.dataset.solidPrice,
       image: timberSettings.dataset.solidImage,
       alt: "Цельноламельный брус",
@@ -58,26 +57,49 @@ if (
       timberImage.alt = data.alt;
 
       timberList.innerHTML = data.list
-        .map((item) => `<li>${item}</li>`)
+        .map((item) => `<li>${item.trim()}</li>`)
         .join("");
     });
   });
+
+  const activeTimberTab = document.querySelector(".glued-timber__tab--active");
+
+  if (activeTimberTab) {
+    activeTimberTab.click();
+  }
 }
 
+// ===== timber sizes block =====
 // ===== timber sizes block =====
 const timberSizeButtonsHeight = document.querySelectorAll(
   "[data-timber-height]"
 );
 const timberSizeButtonsWidth = document.querySelectorAll("[data-timber-width]");
 const timberSizeImage = document.querySelector("[data-timber-size-image]");
+const timberSizeRows = document.querySelectorAll("[data-timber-size-row]");
 
 let timberSelectedHeight = "185";
 let timberSelectedWidth = "160";
 
+const timberSizeImages = {};
+
+timberSizeRows.forEach((row) => {
+  const height = row.dataset.height;
+  const width = row.dataset.width;
+  const image = row.dataset.image;
+
+  if (!height || !width || !image) return;
+
+  timberSizeImages[`${height}-${width}`] = image;
+});
+
 function updateTimberSizeImage() {
   if (!timberSizeImage) return;
 
-  const imagePath = `/modx-demo/assets/img/timber-size-${timberSelectedHeight}-${timberSelectedWidth}.jpg`;
+  const key = `${timberSelectedHeight}-${timberSelectedWidth}`;
+  const imagePath = timberSizeImages[key];
+
+  if (!imagePath) return;
 
   timberSizeImage.src = imagePath;
   timberSizeImage.alt = `Брус сечением ${timberSelectedHeight} на ${timberSelectedWidth} мм`;
@@ -116,30 +138,28 @@ timberSizeButtonsWidth.forEach((button) => {
 });
 
 // ===== ready kits slider =====
-const readyKitsData = [
-  {
-    title: "Проект Алтай",
-    description:
-      "Современный дом для круглогодичного проживания с продуманной планировкой и панорамными окнами",
-    totalArea: "Общая площадь: 69 м²",
-    warmArea: "Площадь теплого контура: —",
-    terraceArea: "Площадь террасы/крыльца: —",
-    size: "Габариты: 8x10 м",
-    profile: "Профилированный клееный брус",
-    section: "Сечение: 160 × 185 мм",
-    price: "от 1 350 000 ₽",
-    mainImage: "img/altai-main.jpg",
-    mainAlt: "Проект Алтай",
-    thumbOne: "img/altai-plan.jpg",
-    thumbOneAlt: "Планировка проекта Алтай",
-    thumbTwo: "img/altai-3d.jpg",
-    thumbTwoAlt: "3D-модель проекта Алтай",
-  },
-];
-
 const readySection = document.querySelector("[data-ready-kits]");
+const readyKitItems = document.querySelectorAll("[data-ready-kit]");
 
-if (readySection) {
+const readyKitsData = Array.from(readyKitItems).map((item) => ({
+  title: item.dataset.title || "",
+  description: item.dataset.description || "",
+  totalArea: item.dataset.totalArea || "",
+  warmArea: item.dataset.warmArea || "",
+  terraceArea: item.dataset.terraceArea || "",
+  size: item.dataset.size || "",
+  profile: item.dataset.profile || "",
+  section: item.dataset.section || "",
+  price: item.dataset.price || "",
+  mainImage: item.dataset.mainImage || "",
+  mainAlt: item.dataset.title || "Проект",
+  thumbOne: item.dataset.thumbOne || "",
+  thumbOneAlt: item.dataset.title || "Планировка проекта",
+  thumbTwo: item.dataset.thumbTwo || "",
+  thumbTwoAlt: item.dataset.title || "3D-модель проекта",
+}));
+
+if (readySection && readyKitsData.length) {
   const readyPrev = readySection.querySelector("[data-ready-prev]");
   const readyNext = readySection.querySelector("[data-ready-next]");
 
@@ -160,30 +180,27 @@ if (readySection) {
   const readyMainImage = readySection.querySelector("[data-ready-main-image]");
   const readyThumbOne = readySection.querySelector("[data-ready-thumb-one]");
   const readyThumbTwo = readySection.querySelector("[data-ready-thumb-two]");
+  const readyDotsContainer = readySection.querySelector("[data-ready-dots]");
 
   let readyCurrentIndex = 0;
 
-  const readyDotsContainer = readySection.querySelector("[data-ready-dots]");
-  readyKitsData.forEach((_, index) => {
-    const dot = document.createElement("button");
-    dot.className = "ready-kits__dot";
-    dot.type = "button";
+  const readyBody = readySection.querySelector(".ready-kits__body");
 
-    if (index === 0) {
-      dot.classList.add("ready-kits__dot--active");
-      dot.setAttribute("aria-current", "true");
+  function changeReadyKit(index) {
+    if (!readyBody) {
+      updateReadyKit(index);
+      return;
     }
 
-    dot.addEventListener("click", () => {
-      readyCurrentIndex = index;
-      updateReadyKit(index);
-    });
+    readyBody.classList.add("ready-kits__body--changing");
 
-    readyDotsContainer.appendChild(dot);
-  });
+    setTimeout(() => {
+      updateReadyKit(index);
+      readyBody.classList.remove("ready-kits__body--changing");
+    }, 300);
+  }
 
   function updateReadyKit(index) {
-    const readyDots = readyDotsContainer.querySelectorAll(".ready-kits__dot");
     const item = readyKitsData[index];
 
     if (!item) return;
@@ -207,6 +224,8 @@ if (readySection) {
     readyThumbTwo.src = item.thumbTwo;
     readyThumbTwo.alt = item.thumbTwoAlt;
 
+    const readyDots = readyDotsContainer.querySelectorAll(".ready-kits__dot");
+
     readyDots.forEach((dot, dotIndex) => {
       dot.classList.toggle("ready-kits__dot--active", dotIndex === index);
 
@@ -218,15 +237,37 @@ if (readySection) {
     });
   }
 
+  readyDotsContainer.innerHTML = "";
+
+  readyKitsData.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.className = "ready-kits__dot";
+    dot.type = "button";
+
+    if (index === 0) {
+      dot.classList.add("ready-kits__dot--active");
+      dot.setAttribute("aria-current", "true");
+    }
+
+    dot.addEventListener("click", () => {
+      readyCurrentIndex = index;
+      changeReadyKit(index);
+    });
+
+    readyDotsContainer.appendChild(dot);
+  });
+
+  updateReadyKit(0);
+
   readyNext.addEventListener("click", () => {
     readyCurrentIndex = (readyCurrentIndex + 1) % readyKitsData.length;
-    updateReadyKit(readyCurrentIndex);
+    changeReadyKit(readyCurrentIndex);
   });
 
   readyPrev.addEventListener("click", () => {
     readyCurrentIndex =
       (readyCurrentIndex - 1 + readyKitsData.length) % readyKitsData.length;
-    updateReadyKit(readyCurrentIndex);
+    changeReadyKit(readyCurrentIndex);
   });
 }
 

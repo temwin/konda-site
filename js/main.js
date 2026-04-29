@@ -1,56 +1,68 @@
 // ===== timber block =====
-const timberData = {
-  "finger-jointed": {
-    title: "Сращенный брус",
-    list: [
-      "До 12 м",
-      "Высокая прочность",
-      "Снимается ствольное напряжение",
-      "Удаление дефектов",
-    ],
-    price: "52 000 ₽ / м³",
-    image: "img/finger-jointed-timber.jpg",
-    alt: "Сращенный брус",
-  },
-
-  "solid-lamella": {
-    title: "Цельноламельный брус",
-    list: ["До 6 м", "Доступная цена", "Однородная текстура дерева"],
-    price: "46 000 ₽ / м³",
-    image: "img/solid-lamella-timber.jpg",
-    alt: "Цельноламельный брус",
-  },
-};
-
+const timberSettings = document.querySelector("[data-timber-settings]");
 const timberTabs = document.querySelectorAll("[data-timber-tab]");
 const timberTitle = document.querySelector("[data-timber-title]");
 const timberList = document.querySelector("[data-timber-list]");
 const timberPrice = document.querySelector("[data-timber-price]");
 const timberImage = document.querySelector("[data-timber-image]");
 
-timberTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const tabName = tab.dataset.timberTab;
-    const data = timberData[tabName];
+if (
+  timberSettings &&
+  timberTabs.length &&
+  timberTitle &&
+  timberList &&
+  timberPrice &&
+  timberImage
+) {
+  const timberData = {
+    "finger-jointed": {
+      title: "Сращенный брус",
+      list: [
+        "До 12 м",
+        "Высокая прочность",
+        "Снимается ствольное напряжение",
+        "Удаление дефектов",
+      ],
+      price: timberSettings.dataset.fingerPrice,
+      image: timberSettings.dataset.fingerImage,
+      alt: "Сращенный брус",
+    },
 
-    if (!data) return;
+    "solid-lamella": {
+      title: "Цельноламельный брус",
+      list: ["До 6 м", "Доступная цена", "Однородная текстура дерева"],
+      price: timberSettings.dataset.solidPrice,
+      image: timberSettings.dataset.solidImage,
+      alt: "Цельноламельный брус",
+    },
+  };
 
-    timberTabs.forEach((item) => {
-      item.classList.remove("glued-timber__tab--active");
-      item.setAttribute("aria-selected", "false");
+  timberTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const tabName = tab.dataset.timberTab;
+      const data = timberData[tabName];
+
+      if (!data) return;
+
+      timberTabs.forEach((item) => {
+        item.classList.remove("glued-timber__tab--active");
+        item.setAttribute("aria-selected", "false");
+      });
+
+      tab.classList.add("glued-timber__tab--active");
+      tab.setAttribute("aria-selected", "true");
+
+      timberTitle.textContent = data.title;
+      timberPrice.textContent = data.price;
+      timberImage.src = data.image;
+      timberImage.alt = data.alt;
+
+      timberList.innerHTML = data.list
+        .map((item) => `<li>${item}</li>`)
+        .join("");
     });
-
-    tab.classList.add("glued-timber__tab--active");
-    tab.setAttribute("aria-selected", "true");
-
-    timberTitle.textContent = data.title;
-    timberPrice.textContent = data.price;
-    timberImage.src = data.image;
-    timberImage.alt = data.alt;
-
-    timberList.innerHTML = data.list.map((item) => `<li>${item}</li>`).join("");
   });
-});
+}
 
 // ===== timber sizes block =====
 const timberSizeButtonsHeight = document.querySelectorAll(
@@ -65,7 +77,7 @@ let timberSelectedWidth = "160";
 function updateTimberSizeImage() {
   if (!timberSizeImage) return;
 
-  const imagePath = `img/timber-size-${timberSelectedHeight}-${timberSelectedWidth}.jpg`;
+  const imagePath = `/modx-demo/assets/img/timber-size-${timberSelectedHeight}-${timberSelectedWidth}.jpg`;
 
   timberSizeImage.src = imagePath;
   timberSizeImage.alt = `Брус сечением ${timberSelectedHeight} на ${timberSelectedWidth} мм`;
@@ -109,10 +121,11 @@ const readyKitsData = [
     title: "Проект Алтай",
     description:
       "Современный дом для круглогодичного проживания с продуманной планировкой и панорамными окнами",
-    area: "Площадь: 69 м²",
+    totalArea: "Общая площадь: 69 м²",
+    warmArea: "Площадь теплого контура: —",
+    terraceArea: "Площадь террасы/крыльца: —",
     size: "Габариты: 8x10 м",
-    floors: "Количество этажей: 1",
-    profile: "Профиль: европейский",
+    profile: "Профилированный клееный брус",
     section: "Сечение: 160 × 185 мм",
     price: "от 1 350 000 ₽",
     mainImage: "img/altai-main.jpg",
@@ -134,9 +147,12 @@ if (readySection) {
   const readyDescription = readySection.querySelector(
     "[data-ready-description]"
   );
-  const readyArea = readySection.querySelector("[data-ready-area]");
+  const readyTotalArea = readySection.querySelector("[data-ready-total-area]");
+  const readyWarmArea = readySection.querySelector("[data-ready-warm-area]");
+  const readyTerraceArea = readySection.querySelector(
+    "[data-ready-terrace-area]"
+  );
   const readySize = readySection.querySelector("[data-ready-size]");
-  const readyFloors = readySection.querySelector("[data-ready-floors]");
   const readyProfile = readySection.querySelector("[data-ready-profile]");
   const readySectionText = readySection.querySelector("[data-ready-section]");
   const readyPrice = readySection.querySelector("[data-ready-price]");
@@ -174,9 +190,10 @@ if (readySection) {
 
     readyTitle.textContent = item.title;
     readyDescription.textContent = item.description;
-    readyArea.textContent = item.area;
+    readyTotalArea.textContent = item.totalArea;
+    readyWarmArea.textContent = item.warmArea;
+    readyTerraceArea.textContent = item.terraceArea;
     readySize.textContent = item.size;
-    readyFloors.textContent = item.floors;
     readyProfile.textContent = item.profile;
     readySectionText.textContent = item.section;
     readyPrice.textContent = item.price;
@@ -212,3 +229,67 @@ if (readySection) {
     updateReadyKit(readyCurrentIndex);
   });
 }
+
+// ===== certificates modal =====
+const certificateImages = document.querySelectorAll(".certificates__image");
+const certificateModal = document.querySelector("[data-certificate-modal]");
+const certificateModalImage = document.querySelector(
+  "[data-certificate-image]"
+);
+const certificateModalClose = document.querySelector(
+  "[data-certificate-close]"
+);
+
+if (
+  certificateImages.length &&
+  certificateModal &&
+  certificateModalImage &&
+  certificateModalClose
+) {
+  certificateImages.forEach((image) => {
+    image.addEventListener("click", () => {
+      certificateModalImage.src = image.src;
+      certificateModalImage.alt = image.alt;
+      certificateModal.classList.add("certificate-modal--active");
+    });
+  });
+
+  certificateModalClose.addEventListener("click", () => {
+    certificateModal.classList.remove("certificate-modal--active");
+    certificateModalImage.src = "";
+  });
+
+  certificateModal.addEventListener("click", (event) => {
+    if (event.target === certificateModal) {
+      certificateModal.classList.remove("certificate-modal--active");
+      certificateModalImage.src = "";
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      certificateModal.classList.remove("certificate-modal--active");
+      certificateModalImage.src = "";
+    }
+  });
+}
+
+// ===== timber process slider =====
+const timberProcessSlider = new Swiper(".timber-process__slider", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+
+  navigation: {
+    nextEl: ".timber-process__arrow--next",
+    prevEl: ".timber-process__arrow--prev",
+  },
+
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});

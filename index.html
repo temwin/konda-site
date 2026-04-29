@@ -10,9 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-
   <body>
     <main class="konda-page">
       <!-- первая секция -->
@@ -281,34 +284,47 @@
             </div>
 
             <div class="timber-process__arrows">
-              <img src="img/arrow-prev.svg" alt="Назад" />
-              <img src="img/arrow-next.svg" alt="Вперед" />
+              <button class="timber-process__arrow timber-process__arrow--prev">
+                <img src="img/arrow-prev.svg" alt="Назад" />
+              </button>
+
+              <button class="timber-process__arrow timber-process__arrow--next">
+                <img src="img/arrow-next.svg" alt="Вперед" />
+              </button>
             </div>
           </div>
 
-          <div class="timber-process__list">
-            <article class="timber-process__item">
-              <h3 class="timber-process__item-title">Изготовление бруса</h3>
-              <p class="timber-process__item-text">
-                Производство клеёного бруса выбранного сечения с контролем
-                влажности 8–12%
-              </p>
-            </article>
+          <div class="swiper timber-process__slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <article class="timber-process__item">
+                  <h3 class="timber-process__item-title">Изготовление бруса</h3>
+                  <p class="timber-process__item-text">
+                    Производство клеёного бруса выбранного сечения с контролем
+                    влажности 8–12%
+                  </p>
+                </article>
+              </div>
 
-            <article class="timber-process__item">
-              <h3 class="timber-process__item-title">Нарезка по проекту</h3>
-              <p class="timber-process__item-text">
-                Точная подготовка всех элементов в соответствии с проектной
-                документацией
-              </p>
-            </article>
+              <div class="swiper-slide">
+                <article class="timber-process__item">
+                  <h3 class="timber-process__item-title">Нарезка по проекту</h3>
+                  <p class="timber-process__item-text">
+                    Точная подготовка всех элементов в соответствии с проектной
+                    документацией
+                  </p>
+                </article>
+              </div>
 
-            <article class="timber-process__item">
-              <h3 class="timber-process__item-title">Подготовка проёмов</h3>
-              <p class="timber-process__item-text">
-                Формирование пазов под установку обсадных коробок
-              </p>
-            </article>
+              <div class="swiper-slide">
+                <article class="timber-process__item">
+                  <h3 class="timber-process__item-title">Подготовка проёмов</h3>
+                  <p class="timber-process__item-text">
+                    Формирование пазов под установку обсадных коробок
+                  </p>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -470,14 +486,15 @@
 
                   <div class="ready-kits__group">
                     <h4>Характеристики</h4>
-                    <p data-ready-area>Площадь: 69 м²</p>
+                    <p data-ready-total-area>Общая площадь: 69 м²</p>
+                    <p data-ready-warm-area>Площадь теплого контура: —</p>
+                    <p data-ready-terrace-area>Площадь террасы/крыльца: —</p>
                     <p data-ready-size>Габариты: 8x10 м</p>
-                    <p data-ready-floors>Количество этажей: 1</p>
                   </div>
 
                   <div class="ready-kits__group">
                     <h4>Материал</h4>
-                    <p data-ready-profile>Профиль: европейский</p>
+                    <p data-ready-profile>Профилированный клееный брус</p>
                     <p data-ready-section>Сечение: 160 × 185 мм</p>
                   </div>
 
@@ -819,6 +836,7 @@
               </p>
 
               <img
+                class="certificates__image"
                 src="img/certificate-glue.jpg"
                 alt="Сертификат соответствия на клей"
                 loading="lazy"
@@ -831,6 +849,7 @@
               </p>
 
               <img
+                class="certificates__image"
                 src="img/certificate-timber.jpg"
                 alt="Сертификат соответствия на брус"
                 loading="lazy"
@@ -839,6 +858,23 @@
           </div>
         </div>
       </section>
+
+      <div class="certificate-modal" data-certificate-modal>
+        <button
+          class="certificate-modal__close"
+          type="button"
+          data-certificate-close
+        >
+          ×
+        </button>
+
+        <img
+          class="certificate-modal__image"
+          src=""
+          alt=""
+          data-certificate-image
+        />
+      </div>
 
       <!-- двенадцатая секция  -->
       <section class="consultation">
@@ -931,6 +967,7 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

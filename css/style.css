@@ -431,19 +431,6 @@ p {
   font-size: var(--font-size-large);
 }
 
-.timber-process__list {
-  display: flex;
-  gap: 20px;
-}
-
-.timber-process__item {
-  flex: 1;
-  padding: 40px;
-  border-radius: 20px;
-  background: #2f3b46;
-  color: var(--color-bg-light);
-}
-
 .timber-process__item-title {
   margin-bottom: 20px;
   font-weight: 600;
@@ -470,6 +457,39 @@ p {
   display: flex;
   gap: 30px;
   margin-bottom: 12px;
+}
+
+.timber-process__arrow {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.timber-process__arrow img {
+  display: block;
+}
+
+.timber-process__slider {
+  overflow: hidden;
+}
+
+.timber-process__slider .swiper-wrapper {
+  align-items: stretch;
+}
+
+.timber-process__slider .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.timber-process__item {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  border-radius: 20px;
+  background: #2f3b46;
+  color: var(--color-bg-light);
 }
 
 /* CSS 6 блок */
@@ -988,9 +1008,47 @@ p {
   background: var(--color-bg-light);
 }
 
+.certificate-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.certificate-modal--active {
+  display: flex;
+}
+
+.certificate-modal__image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: zoom-out;
+}
+
 .certificates__container {
   padding: var(--container-padding);
   margin-bottom: 100px;
+}
+
+.certificate-modal__close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 44px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.certificates__image {
+  cursor: zoom-in;
 }
 
 .certificates__title {
@@ -1441,8 +1499,7 @@ p {
   }
 
   .timber-profiles__list,
-  .wall-kits__list,
-  .timber-process__list {
+  .wall-kits__list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
@@ -1696,8 +1753,7 @@ p {
   }
 
   .timber-profiles__list,
-  .wall-kits__list,
-  .timber-process__list {
+  .wall-kits__list {
     grid-template-columns: 1fr;
     gap: 28px;
   }
@@ -1749,6 +1805,11 @@ p {
   .wall-kits__text,
   .wall-kits__list {
     margin-bottom: 40px;
+  }
+
+  .wall-kits__img {
+    max-width: 340px;
+    margin: 0 auto 24px;
   }
 
   .ready-kits__title {
@@ -2000,5 +2061,10 @@ p {
   .consultation__messenger img {
     width: 56px;
     height: 56px;
+  }
+  
+  .wall-kits__img {
+    max-width: 280px;
+    margin: 0 auto 20px;
   }
 }
